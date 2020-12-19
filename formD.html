@@ -12,28 +12,33 @@
       <pre></pre>
     </div>
     <script>
+      // After DOM content has loaded run function
       document.addEventListener('DOMContentLoaded', () => {
+        
+        // create a form data obj
         let fd = new FormData();
+        // add content
         fd.append('name', 'Saxaphone');
         fd.append('id', 9001);
         fd.append('created_dt', Date.now());
 
-        console.log(Array.from(fd));
-
+        // verify form data
         for (let obj of fd) {
           console.log(obj);
         }
 
+        // insert into html or send to a server =]
         document.querySelector('#output pre').textContent = JSON.stringify(
-          Array.from(fd),
-          '\t',
-          2
+          Array.from(fd)
         );
+
         // let url = 'http://www.somewhere.com/';
         // let req = new Request({
         //     url: url,
+        //     method:'post'
         //     body: fd
         // })
+        
         // fetch(req)
         // .then(response => response.json() )
         // .then( data => {})
